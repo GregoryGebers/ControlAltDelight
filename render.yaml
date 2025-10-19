@@ -1,12 +1,10 @@
 services:
-  # -----------------------------
-  # 1) Backend: Node/Express + Socket.IO
-  # -----------------------------
+  # Backend: Node/Express + Socket.IO
   - type: web
     name: trivia-backend
     env: node
-    plan: free
     rootDir: backend
+    plan: free
     buildCommand: |
       npm ci
     startCommand: |
@@ -14,7 +12,6 @@ services:
     autoDeploy: true
     healthCheckPath: /api/health
     envVars:
-      # ----- Required (set these in the Render dashboard or in a Render Env Group) -----
       - key: NODE_ENV
         value: production
       - key: SUPABASE_URL
@@ -23,34 +20,24 @@ services:
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
-
-      # The frontend origin Render will serve (fill after the frontend deploys)
-      # Example: https://trivia-frontend.onrender.com
+      # After the frontend deploys, set this to its URL (e.g. https://your-frontend.onrender.com)
       - key: CLIENT_ORIGIN
         value: https://REPLACE_WITH_FRONTEND_URL
 
-      # If you’re behind a proxy and setting Secure cookies, trust proxy is recommended in your app:
-      # app.set('trust proxy', 1)
-      # (No env var needed here; just a reminder.)
-
-  # -----------------------------
-  # 2) Frontend: Vite React (Static Site)
-  # -----------------------------
-  - type: static_site
-    name: trivia-frontend
-    plan: free
+staticSites:
+  # Frontend: Vite React (serves /dist)
+  - name: trivia-frontend
     rootDir: frontend
+    plan: free
     buildCommand: |
       npm ci && npm run build
-    staticPublishPath: dist
+    publishPath: dist
     autoDeploy: true
     envVars:
-      # Point the built frontend at the backend API URL (fill after the backend deploys).
-      # Example: https://trivia-backend.onrender.com
+      # After the backend deploys, set this to its URL (e.g. https://your-backend.onrender.com)
       - key: VITE_API_URL
         value: https://REPLACE_WITH_BACKEND_URL
-
-    # Single Page App fallback so client-side routing works
+    # SPA fallback so client-side routing works
     routes:
       - type: rewrite
         source: /api/*
