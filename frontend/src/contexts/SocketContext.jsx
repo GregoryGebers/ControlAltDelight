@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import SocketContext from './SocketContextContext.js'; // keep using the SAME context everywhere
 import { io } from 'socket.io-client';
+import { API } from '@/apiBase';
 
 let socketSingleton = null;
 
@@ -13,10 +14,6 @@ export const SocketProvider = ({ children }) => {
   // Build API base:
   // - In Render: set VITE_API_URL=https://your-backend.onrender.com  (frontend env var)
   // - In local dev: leave it empty so Vite proxy ('/') is used
-  const API =
-    import.meta.env.VITE_API_URL ||
-    (import.meta.env.VITE_API_HOST ? `https://${import.meta.env.VITE_API_HOST}` : '');
-
   // Optional user info you might show in the UI; not used for socket auth (cookies handle that)
   const currentUser = useMemo(() => {
     return {
