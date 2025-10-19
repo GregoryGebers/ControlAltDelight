@@ -36,7 +36,7 @@ services:
   # -----------------------------
   # 2) Frontend: Vite React (Static Site)
   # -----------------------------
-  - type: static
+  - type: static_site
     name: trivia-frontend
     plan: free
     rootDir: frontend
