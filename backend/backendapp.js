@@ -56,14 +56,26 @@ app.use(cookieParser());
 app.use('/api', apiRoutes);
 
 app.get("/health", (req, res) => res.send("ok"));
-const server = http.createServer(app);
+
+const CLIENT_ORIGIN =
+  process.env.CLIENT_ORIGIN ||
+  (process.env.CLIENT_ORIGIN_HOST ? `https://${process.env.CLIENT_ORIGIN_HOST}` : undefined);
+import cors from 'cors';
+if (CLIENT_ORIGIN) {
+  app.use(cors({ origin: [CLIENT_ORIGIN], credentials: true }));
+}
+
+const server = http.createServer(app); 
+import { Server } from 'socket.io';
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5175", "http://10.147.17.70:5175"],
-    methods: ["GET", "POST"],
-    credentials: true
-  }
+    origin: CLIENT_ORIGIN ? [CLIENT_ORIGIN] : [],
+    credentials: true,
+    methods: ['GET', 'POST'],
+  },
 });
+
+
 const port = process.env.PORT || 3000;
 
 // Auth middleware: link a user to the socket

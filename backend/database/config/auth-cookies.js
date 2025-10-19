@@ -9,16 +9,16 @@ export function setAuthCookies(res, session) {
   // ACCESS TOKEN
   res.cookie('sb_at', session.access_token, {
     httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
+    secure: true,
+    sameSite: 'none',
     expires: accessExpires,
     path: '/',
   })
 
   res.cookie('sb_rt', session.refresh_token, {
     httpOnly: true,
-    secure: false,
-    sameSite: 'lax',
+    secure: true,
+    sameSite: 'none',
     maxAge: 60 * 24 * 60 * 60 * 1000, // 60 days
     path: '/',
   })
