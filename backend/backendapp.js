@@ -53,6 +53,7 @@ export async function requireUser(req, res, next) {
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+app.set('trust proxy', 1)
 
 // Build frontend origin from env; MUST be exact Render frontend URL
 const CLIENT_ORIGIN =
