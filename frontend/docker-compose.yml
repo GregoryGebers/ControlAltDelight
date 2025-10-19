@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5175:5175"
+    container_name: project-frontend
+    volumes:
+      - .:/app
+      - /app/node_modules

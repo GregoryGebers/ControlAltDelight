@@ -1,0 +1,15 @@
+/* Dropdown item css */
+.dropdown-item {
+    font-family: Arial, sans-serif;
+    display: flex;
+    padding: 0.5rem 1rem;
+    margin: 0.1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    color: var(--accent-black);
+}
+
+.dropdown-item:hover {
+    background: var(--accent-peach);
+}

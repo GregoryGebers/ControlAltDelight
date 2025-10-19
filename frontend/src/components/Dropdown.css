@@ -1,0 +1,74 @@
+/* Dropdown css */
+.dropdown {
+    position: relative;
+    width: fit-content;
+}
+
+.dropdown-btn {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 1rem;
+    background-color: var(--accent-white);
+    border: 2.5px solid var(--accent-black);
+    cursor: pointer;
+    box-sizing: border-box;
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--accent-black);
+}
+
+.dropdown-down {
+    width: 25px;
+    height: 25px;
+}
+
+.toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    font-family: Arial, sans-serif;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    background-color: var(--accent-white);
+    border-radius: 0.5rem;
+    border: 2.5px solid var(--accent-black);
+    max-height: 40vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    opacity: 0;
+    transform: translateY(-5%);
+    transition: transform 150ms ease-in-out, opacity 100ms ease-in-out;
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* If dropdown is open */
+.button-open {
+    border: var(--accent-black) 2px solid;
+}
+
+.content-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+    width: var(--given-width);
+}

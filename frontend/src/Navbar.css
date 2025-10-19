@@ -1,0 +1,129 @@
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: var(--accent-white);
+    border-bottom: 4px solid var(--accent-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 9999;
+}
+
+/* Brand / Logo */
+.navbar > div:first-child img.small-logo {
+    height: 80px;
+    width: auto;
+}
+
+/* Navbar Styles */
+.navbar-admin {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: var(--accent-vivid-blue);
+    border-bottom: 4px solid var(--accent-black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    z-index: 9999;
+}
+
+/* Brand / Logo */
+.navbar-admin > div:first-child img.small-logo {
+    height: 80px;
+    width: auto;
+}
+
+
+/* Nav Links Container */
+.nav-links-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Nav Links List */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+}
+
+.nav-links li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links .active {
+    background-color: var(--accent-yellow);
+}
+
+.nav-links .button.blue.active {
+  background-color: var(--accent-pastel-blue) !important;
+  color: var(--accent-black) !important;
+}
+
+
+/* Navbar-specific button overrides */
+.navbar .button {
+    height: 55px;
+    padding: 0 0.55rem;
+    font-size: 1.5rem;
+}
+
+.navbar .button.active:hover {
+    background-color: var(--hover-yellow);
+}
+
+.navbar .button.signin {
+    background-color: var(--accent-black);
+    color: var(--accent-white);
+    margin-left: 1rem;
+}
+
+.navbar .button.bell {
+    background-color: var(--accent-black);
+    padding: 0;
+    width: 55px;
+    height: 55px;
+    margin-left: 5rem;
+}
+
+.navbar .button.bell:hover {
+    background-color: var(--accent-black);
+    transform: none;
+}
+
+.bell_img {
+    fill: var(--accent-peach);
+}
+
+.bell_img:hover {
+    fill: var(--hover-peach);
+}
+
+/* Auth Buttons Container */
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.auth-buttons .active {
+    background-color: var(--accent-yellow);
+}
+
+
+.auth-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

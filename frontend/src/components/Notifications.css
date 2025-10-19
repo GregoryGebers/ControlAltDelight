@@ -1,0 +1,109 @@
+/* Notifications css */
+.notifications {
+    position: relative;
+    width: fit-content;
+    margin-left: 15px;
+    display: inline-block;
+}
+
+.bell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 41.5px;
+    width: 41.5px;
+    padding: 0;
+    margin: 0;
+    z-index: 1500;
+}
+
+.bell_img {
+    width: 35px;
+    height: auto;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+/* Dropdown content */
+.notifications-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    background-color: var(--accent-white);
+    border-radius: 0.5rem;
+    border: 4px solid var(--accent-black);
+    max-height: 40vh;
+    overflow: visible;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    opacity: 0;
+    transform: translateY(-5%);
+    transition: transform 150ms ease-in-out, opacity 100ms ease-in-out;
+    pointer-events: none;
+    z-index: 10000;
+    margin-top: 14px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Triangle pointer */
+.notifications-content::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 26%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid var(--accent-black);
+    z-index: 10001;
+}
+
+.notifications-content::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* If notifications are open */
+.notifications-open {
+    background-color: darkgray;
+}
+
+.content-open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+.notification-text {
+    display: flex;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--accent-yellow);
+    background-color: var(--accent-black);
+    padding: 1rem;
+    border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.notification-underline {
+    display: none;
+}
+
+.notifications-items-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: calc(40vh - 60px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.notifications-items-container::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}

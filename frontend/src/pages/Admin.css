@@ -1,0 +1,45 @@
+/* Admin uses page-container pattern from index.css */
+.matches-container {
+    color: var(--accent-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+
+}
+
+
+.matches-container h1 {
+    font-size: 65px;
+}
+
+.input-search {
+    width: 690px;
+}
+.common-table {
+    margin: 20px 0;
+    width: 1000px;
+}
+
+.common-table th {
+    text-align: center;
+    background-color: var(--accent-vivid-blue);
+}
+
+.button.blue {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.button-small {
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: var(--accent-peach);
+}
+
+.buttons-container {
+    margin: 2rem;
+}
+

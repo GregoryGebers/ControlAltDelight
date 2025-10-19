@@ -1,0 +1,88 @@
+/* Leaderboard uses page-container pattern from index.css */
+.leaderboard-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.leaderboard-container h1 {
+    font-family: var(--font-family);
+    font-size: 65px;
+    color: var(--accent-black);
+}
+
+/* Leaderboard table with specific widths */
+.leaderboard-table {
+    width: 910px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    border: 3px solid var(--accent-black);
+}
+
+.leaderboard-table th {
+    background-color: var(--accent-yellow);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px 15px;
+    border: 1.5px solid var(--accent-black);
+    border-bottom: 2px solid var(--accent-black);
+    color: var(--accent-black);
+}
+
+.leaderboard-table td {
+    background-color: var(--accent-white);
+    border: 1.5px solid var(--accent-black);
+    font-size: 17px;
+    padding: 12px 15px;
+    color: var(--accent-black);
+}
+
+/* Column widths */
+.leaderboard-table th:nth-child(1),
+.leaderboard-table td:nth-child(1) {
+    text-align: center;
+    vertical-align: middle;
+    width: 80px;
+}
+
+.leaderboard-table th:nth-child(2),
+.leaderboard-table td:nth-child(2) {
+    width: 280px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.leaderboard-table th:nth-child(3),
+.leaderboard-table td:nth-child(3) {
+    width: 180px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.leaderboard-table th:nth-child(4),
+.leaderboard-table td:nth-child(4) {
+    width: 220px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.leaderboard-table th:nth-child(5),
+.leaderboard-table td:nth-child(5) {
+    text-align: center;
+    vertical-align: middle;
+    width: 110px;
+}
+
+/* Leaderboard specific sorting container */
+.leaderboard-container .sorting-container {
+    width: 900px;
+}
+
+/* Leaderboard specific input search */
+.leaderboard-container .input-search {
+    width: 370px;
+}

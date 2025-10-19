@@ -1,0 +1,52 @@
+/* Notifications item css */
+.notifications-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    z-index: 100;
+    background: var(--accent-white);
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid var(--accent-black);
+    color: var(--accent-black);
+}
+
+.notifications-item:hover {
+    background: var(--accent-white);
+}
+
+.notification-message {
+    padding: 0 0 1rem 0;
+    font-size: 16px;
+}
+
+.notification-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+/* Notification-specific button styles */
+.join-btn,
+.decline-btn {
+    width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--accent-peach);
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    border: 3px solid var(--accent-black);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: var(--accent-black);
+}
+
+.join-btn:hover,
+.decline-btn:hover {
+    background-color: var(--hover-peach);
+}

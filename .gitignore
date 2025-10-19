@@ -1,0 +1,61 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+.vercel/
+.netlify/
+.railway/
+
+
+# Logs
+logs/
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Database
+*.db
+*.sqlite
+*.sqlite-journal
+*.dump
+prisma/migrations/*/steps.json
+prisma/dev.db
+
+# Docker
+*.tar
+docker-compose.override.yml
+
+# Editor/system files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+*.iml
+
+# Coverage/test
+coverage/
+*.lcov
+.nyc_output/
+jest-cache/
+jest-html-reporters-*.html
+
+# Misc
+*.tgz
+*.bak
+*.tmp
+*.orig
+

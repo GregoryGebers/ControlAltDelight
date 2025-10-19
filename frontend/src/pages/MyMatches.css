@@ -1,0 +1,149 @@
+.mymatches-background {
+    margin-top: 90px;
+    min-height: calc(100vh - 90px);
+    background-image: url('../assets/Login_Background_Left.svg'), url('../assets/Login_Background_Right.svg');
+    background-position: left, right;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, contain;
+    background-color: var(--background-peach);
+}
+
+.mymatches-container {
+    color: var(--accent-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.mymatches-container h1 {
+    font-size: 65px;
+    color: var(--accent-black);
+}
+
+.table p {
+    color: var(--accent-black);
+    font-size: 20px;
+    padding: 20px;
+}
+
+/* Uses common-table as base, adds specific width and column sizing */
+.mymatches-table {
+    width: 805px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    border: 3px solid var(--accent-black);
+    color: var(--accent-black);
+}
+
+.mymatches-table th {
+    background-color: var(--accent-yellow);
+    font-weight: bold;
+    padding: 12px 15px;
+    border: 1.5px solid var(--accent-black);
+    border-bottom: 2px solid var(--accent-black);
+}
+
+.mymatches-table td {
+    background-color: var(--accent-white);
+    border-bottom: 1px solid var(--accent-black);
+    padding: 12px 15px;
+    border: 1.5px solid var(--accent-black);
+}
+
+/* Column widths */
+.mymatches-table th:nth-child(1),
+.mymatches-table td:nth-child(1) {
+    text-align: center;
+    vertical-align: middle;
+    width: auto;
+}
+
+.mymatches-table th:nth-child(2),
+.mymatches-table td:nth-child(2) {
+    width: 800px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.mymatches-table th:nth-child(3),
+.mymatches-table td:nth-child(3) {
+    text-align: center;
+    vertical-align: middle;
+    width: 500px;
+}
+
+/* MyMatches specific input search */
+.mymatches-container .input-search {
+    width: 510px;
+}
+
+.match-button-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* MyMatches specific buttons */
+.scrape,
+.edit,
+.create {
+    margin: 0.5rem;
+    background-color: var(--accent-black);
+    color: var(--accent-white);
+    cursor: pointer;
+    font-size: 28px;
+    font-weight: 600;
+    padding: 1rem;
+    border: 3px solid var(--accent-black);
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pagination-symbols {
+    font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -10px !important;
+  margin-bottom: 20px;
+  gap: 1rem;
+  font-size: 1.4rem;
+  user-select: none;
+}
+
+.page-symbol {
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.page-symbol:hover {
+  transform: scale(1.2);
+}
+
+.page-symbol.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.page-count {
+  font-weight: 600;
+}
+
+.button-admin {
+    cursor: pointer;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: var(--accent-peach);
+    padding: 0.5rem;
+    font-size: 15px;
+    width: fit-content;
+}

@@ -1,0 +1,112 @@
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.login-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Brand / Logo */
+.login-container > div:first-child img.welcome-logo {
+    height: 90%;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.text {
+    margin-top: 20%;
+    margin-bottom: 20%;
+    font-size: 64px;
+    font-weight: 600;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: auto;
+}
+
+.input-text {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.input input {
+    height: 50px;
+    width: 300px;
+    background: var(--accent-white);
+    border: 2px solid var(--accent-black);
+    outline: none;
+    color: var(--accent-black);
+    font-size: 19px;
+    border-radius: 2px;
+    padding-left: 5%;
+}
+
+.submit-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 5%;
+    width: 400px;
+}
+
+.new-user {
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.switch-login {
+    font-size: 25px;
+    text-decoration: underline;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Login specific button */
+.button.submit {
+    margin-top: 10px;
+    background-color: var(--accent-vivid-blue);
+    color: var(--accent-black);
+    padding: 20px 30px;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 3px solid var(--accent-black);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: auto;
+    height: auto;
+}
+
+.button.submit:hover {
+    background-color: var(--hover-vivid-blue);
+}
