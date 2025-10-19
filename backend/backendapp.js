@@ -2,6 +2,7 @@ import express from "express"
 import http from "http"
 import { Server } from "socket.io"
 import 'dotenv/config'
+import cors from 'cors'
 import apiRoutes from './routes/apiroutes.js';
 import { fetchQuestionsInRounds, fetchMatchQuestions, updateMatchStatus, deactivateQuestions, updateScores, updateMatchCompletedDate } from "./game_helpers/dbqueires.js";
 import {createAnonClient, supabaseAdmin, createUserClient} from './database/config/supabaseClient.js';
@@ -51,6 +52,7 @@ export async function requireUser(req, res, next) {
 }
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(express.json());
 app.use(cookieParser());
 app.use('/api', apiRoutes);
@@ -60,10 +62,17 @@ app.get("/health", (req, res) => res.send("ok"));
 const CLIENT_ORIGIN =
   process.env.CLIENT_ORIGIN ||
   (process.env.CLIENT_ORIGIN_HOST ? `https://${process.env.CLIENT_ORIGIN_HOST}` : undefined);
-import cors from 'cors';
-if (CLIENT_ORIGIN) {
-  app.use(cors({ origin: [CLIENT_ORIGIN], credentials: true }));
-}
+// Apply CORS *before* routes
+app.use(cors({
+  origin: CLIENT_ORIGIN ? [CLIENT_ORIGIN] : [],  // set the env var!
+  credentials: true,
+}));
+
+// Lightweight health check Render can hit
+app.get("/health", (_req, res) => res.send("ok"));
+
+// Now mount your API routes
+app.use('/api', apiRoutes);
 
 const server = http.createServer(app); 
 const io = new Server(server, {
