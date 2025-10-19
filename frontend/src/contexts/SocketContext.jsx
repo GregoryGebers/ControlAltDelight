@@ -2,8 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import SocketContext from './SocketContextContext.js'; // keep using the SAME context everywhere
 import { io } from 'socket.io-client';
-import { API } from '@/apiBase';
-
+import { API } from '../lib/apiBase';
 let socketSingleton = null;
 
 export const SocketProvider = ({ children }) => {
