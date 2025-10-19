@@ -51,32 +51,30 @@ export async function requireUser(req, res, next) {
   }
 }
 
-const app = express();
-app.set('trust proxy', 1);
 app.use(express.json());
 app.use(cookieParser());
-app.use('/api', apiRoutes);
 
-app.get("/health", (req, res) => res.send("ok"));
-
+// Build frontend origin from env; MUST be exact Render frontend URL
 const CLIENT_ORIGIN =
-  process.env.CLIENT_ORIGIN ||
+  (process.env.CLIENT_ORIGIN?.trim()) ||
   (process.env.CLIENT_ORIGIN_HOST ? `https://${process.env.CLIENT_ORIGIN_HOST}` : undefined);
-// Apply CORS *before* routes
+
+// Apply CORS BEFORE routes (credentials required for cookies)
 app.use(cors({
-  origin: CLIENT_ORIGIN ? [CLIENT_ORIGIN] : [],  // set the env var!
+  origin: CLIENT_ORIGIN ? [CLIENT_ORIGIN] : [],   // set CLIENT_ORIGIN in Render
   credentials: true,
 }));
 
-// Lightweight health check Render can hit
-app.get("/health", (_req, res) => res.send("ok"));
+// Fast health check for Render
+app.get('/api/health', (_req, res) => res.status(200).json({ ok: true }));
 
-// Now mount your API routes
+// Mount API after CORS
 app.use('/api', apiRoutes);
 
 const server = http.createServer(app); 
 const io = new Server(server, {
   cors: {
+    origin: CLIENT_ORIGIN ? [CLIENT_ORIGIN] : [],
     origin: CLIENT_ORIGIN ? [CLIENT_ORIGIN] : [],
     credentials: true,
     methods: ['GET', 'POST'],
