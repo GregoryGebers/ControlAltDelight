@@ -1,5 +1,5 @@
 services:
-  # Backend: Node/Express + Socket.IO
+  # --- Backend: Node/Express + Socket.IO ---
   - type: web
     name: trivia-backend
     env: node
@@ -20,14 +20,15 @@ services:
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
-      # Pull the frontend URL into backend CORS
-      - key: CLIENT_ORIGIN
+
+      # The frontend host (no scheme). Your code will build https://<host>
+      - key: CLIENT_ORIGIN_HOST
         fromService:
           type: web
           name: trivia-frontend
-          property: url
+          property: host
 
-  # Frontend: serve Vite build via a tiny Node server (no staticSites needed)
+  # --- Frontend: Vite build served by a tiny Node process ---
   - type: web
     name: trivia-frontend
     env: node
@@ -39,9 +40,9 @@ services:
       npx serve -s dist -l $PORT
     autoDeploy: true
     envVars:
-      # Pull the backend URL into the frontend at build time
-      - key: VITE_API_URL
+      # The backend host (no scheme). Vite code will build https://<host>
+      - key: VITE_API_HOST
         fromService:
           type: web
           name: trivia-backend
-          property: url
+          property: host
