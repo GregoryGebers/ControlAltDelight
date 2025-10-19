@@ -50,7 +50,7 @@ export async function requireUser(req, res, next) {
     return res.status(500).json({ok: false, error: "auth mmiddleware error"})
   }
 }
-
+const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
